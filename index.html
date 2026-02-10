@@ -13,12 +13,14 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   height: 100vh;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 /* ================= BACKGROUND ================= */
@@ -126,7 +128,8 @@ body::before {
 .card {
   position: relative;
   z-index: 5;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   padding: 40px;
   border-radius: 32px;
   background: rgba(255,255,255,0.95);
@@ -391,8 +394,12 @@ button:active {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  
   .card {
-    width: 90%;
+    max-width: 100%;
     padding: 30px 25px;
   }
   
@@ -403,6 +410,11 @@ button:active {
   button {
     padding: 12px 24px;
     font-size: 15px;
+  }
+  
+  .success-card {
+    max-width: 100%;
+    padding: 30px 25px;
   }
 }
 </style>
@@ -479,11 +491,11 @@ setInterval(createHeart, 300);
 let noCount = 0;
 
 const noResponses = [
-  { img: "sad5.jfif", text: "Sure kana ayaw mo talaga?..." },
-  { img: "sad2.jfif", text: "Please? Just look at me again 😭💕" },
-  { img: "sad8.jfif", text: "Di ka ba naawa sa marshmallow?..." },
-  { img: "sad9.jfif", text: "U SO MEAN... just say yes to this cutie face please?..." },
-  { img: "sad0.jfif", text: "balakadyan this will get bigger and bigger lang :> 💝" }
+  { img: "me1.jpg", text: "Are you sure? 🥺 Think about all our memories..." },
+  { img: "me2.jpg", text: "Please? Just look at me again... 😭💕" },
+  { img: "me3.jpg", text: "This could be us every day 💞✨" },
+  { img: "me4.jpg", text: "My heart is breaking... 😔💔 Last chance?" },
+  { img: "me4.jpg", text: "Really? 😢 I'll just keep trying... 💝" }
 ];
 
 const noButton = document.getElementById('no');
@@ -570,7 +582,7 @@ function yesClicked() {
             </div>
           </div>
           
-          <div> I knew you were gonna say yes! blehh!</div>
+          <div class="hearts-emoji">💖💝💕</div>
         </div>
       </div>
     `;
